@@ -1,1 +1,8 @@
-<p>details works!</p>
+<h3>{{ roomData.nom_habita }}</h3>
+<p>{{ roomData.cant_usua }}</p>
+<p>{{ roomData.desc_habita }}</p>
+<p>{{ roomData.precio }}</p>
+<p>Servicios:</p>
+@for (item of roomData.serv_habita; track $index) {
+<p>{{ item }}</p>
+}

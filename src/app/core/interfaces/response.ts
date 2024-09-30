@@ -3,7 +3,7 @@ export interface Response {}
 export interface Habitacion {
   id_habita: number
   id_sede: number
-  img_habita: null
+  img_habita: string[]
   desc_habita: string
   cant_usua: number
   nom_habita: string

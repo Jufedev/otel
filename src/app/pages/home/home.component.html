@@ -1,8 +1,8 @@
-<p>home works!aaaaa</p>
-
 @for (item of roomData; track item.id_habita) {
-<div>
-  <h3>{{ item.nom_habita }}</h3>
-  <p>{{ item.cant_usua }}</p>
-</div>
+<a [routerLink]="['/room', item.id_habita]">
+  <app-card-room
+    [nombre]="item.nom_habita"
+    [capacidad]="item.cant_usua"
+  />
+</a>
 }

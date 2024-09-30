@@ -31,4 +31,17 @@ export class GetDataService {
     }
     return data
   }
+
+  async habitacion(id_room: string): Promise<Habitacion[]> {
+    const { data, error } = await this.supabase
+      .from('habitacion')
+      .select()
+      .eq('id_habita', id_room)
+      .returns<Habitacion[]>()
+    if (error) {
+      return []
+    }
+
+    return data
+  }
 }
