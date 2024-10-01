@@ -2,11 +2,12 @@ import { Component } from '@angular/core'
 import { ActivatedRoute } from '@angular/router'
 import { Habitacion } from 'src/app/core/interfaces/response'
 import { GetDataService } from 'src/app/core/services/get/get-data.service'
+import { NavBarComponent } from '../../components/nav-bar/nav-bar.component'
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [],
+  imports: [NavBarComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css',
 })
@@ -36,5 +37,7 @@ export class DetailsComponent {
     await this.supabaseService
       .habitacion(this.roomId)
       .then((data) => (this.roomData = data[0]))
+
+    await this.supabaseService.reserva(this.roomId)
   }
 }

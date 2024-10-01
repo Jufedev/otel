@@ -1,3 +1,5 @@
+<app-nav-bar />
+
 <h3>{{ roomData.nom_habita }}</h3>
 <p>{{ roomData.cant_usua }}</p>
 <p>{{ roomData.desc_habita }}</p>
@@ -6,3 +8,7 @@
 @for (item of roomData.serv_habita; track $index) {
 <p>{{ item }}</p>
 }
+
+<form action="">
+  <button>Reservar</button>
+</form>

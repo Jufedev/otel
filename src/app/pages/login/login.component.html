@@ -1,1 +1,214 @@
-<p>login works!</p>
+<div id="body">
+  <div
+    [class.active]="isActive"
+    class="contform sign-up"
+  >
+    <div class="welcome">
+      <div class="msg">
+        <h2>¡Hola de nuevo!</h2>
+        <p>Si aun no tienes cuenta por favor registrese aquí</p>
+        <button
+          (click)="toggle()"
+          class="sign-up-button"
+        >
+          Registrarse
+        </button>
+      </div>
+    </div>
+
+    <form class="form">
+      <div class="cicon">
+        <div class="icon">
+          <img
+            src="/img/logocorto.png"
+            alt="Logo"
+          />
+        </div>
+      </div>
+      <h2 class="ftitle">Iniciar sesión</h2>
+
+      <div class="fcontainer">
+        <div class="fgroup">
+          <input
+            type="number"
+            id="usuario1"
+            class="finput"
+            placeholder=" "
+            required
+          />
+          <label
+            for="usuario1"
+            class="flabel"
+            >Número Documento</label
+          >
+        </div>
+
+        <div class="fgroup">
+          <input
+            type="password"
+            id="contraseña1"
+            class="finput"
+            placeholder=" "
+            required
+          />
+          <label
+            for="contraseña1"
+            class="flabel"
+            >Contraseña</label
+          >
+        </div>
+
+        <a
+          class="crear"
+          [routerLink]="['/']"
+          >Ir al inicio</a
+        >
+
+        <input
+          type="button"
+          class="fsubmit"
+          value="Iniciar sesión"
+        />
+      </div>
+    </form>
+  </div>
+
+  <div
+    [class.active]="isActive"
+    class="contform sign-in"
+  >
+    <form
+      [formGroup]="singUpForm"
+      (ngSubmit)="onSubmit()"
+      class="form"
+    >
+      <div class="cicon">
+        <div class="icon">
+          <img
+            src="/img/logocorto.png"
+            alt="Logo"
+          />
+        </div>
+      </div>
+      <h2 class="ftitle">Crea tu cuenta</h2>
+
+      <div class="fcontainer">
+        <div class="fgroup">
+          <input
+            type="number"
+            id="usuario2"
+            class="finput"
+            placeholder=" "
+            formControlName="id_usua"
+            name="id_usua"
+          />
+          <label
+            for="usuario2"
+            class="flabel"
+            >Número Documento</label
+          >
+        </div>
+
+        <div class="fgroup">
+          <input
+            type="text"
+            id="nombre"
+            class="finput"
+            placeholder=" "
+            formControlName="nom_usua"
+            name="nom_usua"
+          />
+          <label
+            for="nombre"
+            class="flabel"
+            >Nombre completo</label
+          >
+        </div>
+
+        <div class="fgroup">
+          <input
+            type="email"
+            id="email2"
+            class="finput"
+            placeholder=" "
+            formControlName="correo_usua"
+            name="correo_usua"
+          />
+          <label
+            for="email2"
+            class="flabel"
+            >Correo electrónico</label
+          >
+        </div>
+
+        <div class="fgroup">
+          <input
+            type="number"
+            id="telefono"
+            class="finput"
+            placeholder=" "
+            formControlName="tel_usua"
+            name="tel_usua"
+          />
+          <label
+            for="telefono"
+            class="flabel"
+            >Teléfono</label
+          >
+        </div>
+
+        <div class="fgroup">
+          <input
+            type="password"
+            id="contraseña2"
+            class="finput"
+            placeholder=" "
+            formControlName="contra_usua"
+            name="contra_usua"
+          />
+          <label
+            for="contraseña2"
+            class="flabel"
+            >Contraseña</label
+          >
+        </div>
+
+        <div class="fgroup">
+          <input
+            type="password"
+            id="contraseña3"
+            class="finput"
+            placeholder=" "
+            formControlName="confirm_contra"
+            name="confirm_contra"
+          />
+          <label
+            for="contraseña3"
+            class="flabel"
+            >Confirmar contraseña</label
+          >
+        </div>
+        <button
+          type="submit"
+          class="fsubmit"
+          [disabled]="!singUpForm.valid"
+        >
+          Crear
+        </button>
+      </div>
+    </form>
+
+    <div class="welcome">
+      <div class="msg">
+        <h2>¡Estamos felices de tenerte aquí!</h2>
+        <p>Si ya tiene cuenta por favor inicia sesión aquí</p>
+        <button
+          (click)="toggle()"
+          class="sign-in-button"
+        >
+          Iniciar sesión
+        </button>
+      </div>
+    </div>
+  </div>
+</div>

@@ -3,11 +3,12 @@ import { GetDataService } from '../../core/services/get/get-data.service'
 import { Habitacion } from '../../core/interfaces/response'
 import { CardRoomComponent } from '../../components/card-room/card-room.component'
 import { RouterLink } from '@angular/router'
+import { NavBarComponent } from '../../components/nav-bar/nav-bar.component'
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CardRoomComponent, RouterLink],
+  imports: [CardRoomComponent, RouterLink, NavBarComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

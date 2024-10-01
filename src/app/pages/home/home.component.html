@@ -1,3 +1,5 @@
+<app-nav-bar />
+
 @for (item of roomData; track item.id_habita) {
 <a [routerLink]="['/room', item.id_habita]">
   <app-card-room

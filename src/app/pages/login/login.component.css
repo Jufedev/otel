@@ -1,0 +1,206 @@
+* {
+  margin: 0;
+  padding: 0;
+  font-family: 'Roboto';
+  box-sizing: border-box;
+}
+
+#body {
+  height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  /*background-image: url(/img/FondoForm.png);*/
+  background-color: black;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  color: white;
+}
+
+.contform {
+  width: 90%;
+  height: 550px;
+  display: flex;
+  justify-content: space-around;
+  transition: all 0.5s ease-out;
+}
+
+.welcome {
+  display: flex;
+  align-items: center;
+  text-align: center;
+}
+
+.msg {
+  padding: 1rem;
+}
+
+.msg h2 {
+  font-size: 1.7rem;
+  padding: 1rem 0;
+}
+
+.msg button {
+  padding: 1rem;
+  font-weight: 400;
+  background-color: #059481;
+  border-radius: 2rem;
+  border: white solid 1px;
+  outline: none;
+  cursor: pointer;
+  font-size: 0.9rem;
+  margin-top: 2rem;
+  transition: all 0.3s ease-in;
+  color: white;
+}
+
+.msg button:hover {
+  background-color: #620481;
+}
+
+.msg button:active {
+  background-color: #330542;
+}
+
+.form {
+  width: 400px;
+  padding: 1rem;
+  margin: 2rem;
+  background: linear-gradient(rgba(128, 0, 128, 0.3), rgba(0, 0, 255, 0.3));
+  border: white solid 2px;
+  text-align: center;
+  border-radius: 10px;
+  position: relative;
+}
+
+.cicon {
+  position: absolute;
+  width: 90%;
+  top: -50px;
+  height: 100px;
+}
+
+.icon {
+  border: white solid 2px;
+  margin: auto auto;
+  width: 30%;
+  height: 100%;
+  background: linear-gradient(#9b02ce, black);
+  border-radius: 100%;
+}
+
+.icon img {
+  margin-top: 15px;
+  height: 70%;
+  width: 100%;
+}
+
+.ftitle {
+  margin-top: 25px;
+  padding: 1rem 0;
+  font-size: 1.7rem;
+}
+
+.fcontainer {
+  display: grid;
+  align-content: center;
+  height: 80%;
+  gap: 1.8em;
+}
+
+.form input {
+  width: 70%;
+  display: block;
+  margin: auto;
+  background-color: transparent;
+  border: none;
+  border-bottom: white thin solid;
+  text-align: center;
+  outline: none;
+  padding: 0.2rem 0;
+  font-size: 0.9rem;
+  color: white;
+}
+
+.fgroup {
+  position: relative;
+}
+
+.finputcolor:focus + .flabel,
+.finput:focus + .flabel,
+.finputcolor:not(:placeholder-shown) + .flabel,
+.finput:not(:placeholder-shown) + .flabel {
+  transform: translateY(-15px) scale(0.8);
+  transform-origin: left top;
+  color: #059481;
+}
+
+.flabel {
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  left: 55px;
+  transform: translateY(5px);
+}
+
+.msg p {
+  padding: 2rem 0;
+}
+
+.form input[type='button'],
+.fsubmit {
+  width: 60%;
+  margin: auto;
+  border: solid thin white;
+  padding: 0.7rem;
+  border-radius: 2rem;
+  background-color: white;
+  font-size: 0.8rem;
+  cursor: pointer;
+  color: #222;
+  background-color: #059481;
+  color: white;
+  transition: all 0.3s ease-in;
+}
+
+.fsubmit:disabled {
+  background-color: #940505;
+}
+
+.form input[type='button']:hover {
+  background-color: #620481;
+}
+
+.form input[type='button']:active {
+  background-color: #330542;
+}
+
+.sign-in {
+  position: absolute;
+  opacity: 0;
+  visibility: hidden;
+}
+
+.sign-in.active {
+  opacity: 1;
+  visibility: visible;
+}
+
+.sign-up.active {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.crear {
+  color: white;
+  padding: 20px 0;
+}
+
+.crear:visited {
+  color: white;
+}
+
+.crear:active {
+  color: #059481;
+}
