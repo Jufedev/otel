@@ -4,6 +4,16 @@
     <li>OTEL'</li>
     <li>Socios</li>
     <li>
+      @if (logged) {
+      <a (click)="closeSesion()">
+        <img
+          [ngSrc]="userImg"
+          fill
+          priority
+        />
+      </a>
+      }@else {
+
       <a [routerLink]="['/login']">
         <img
           [ngSrc]="userImg"
@@ -11,6 +21,7 @@
           priority
         />
       </a>
+      }
     </li>
   </ul>
 </nav>

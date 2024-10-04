@@ -3,3 +3,7 @@ img {
   height: 100px !important;
   width: 100px !important;
 }
+
+a:hover {
+  cursor: pointer;
+}

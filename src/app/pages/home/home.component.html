@@ -1,4 +1,7 @@
-<app-nav-bar />
+<app-nav-bar
+  [userImg]="userPhoto"
+  [logged]="isLogged"
+/>
 
 @for (item of roomData; track item.id_habita) {
 <a [routerLink]="['/room', item.id_habita]">

@@ -7,7 +7,7 @@ import {
   ValidatorFn,
   Validators,
 } from '@angular/forms'
-import { RouterLink } from '@angular/router'
+import { Router, RouterLink } from '@angular/router'
 import { Observable } from 'rxjs'
 import { Usuario, Welcome } from 'src/app/core/interfaces/response'
 import { GetDataService } from 'src/app/core/services/get/get-data.service'
@@ -27,7 +27,8 @@ export class LoginComponent implements OnInit {
 
   constructor(
     private supabaseService: SendDataService,
-    private getService: GetDataService
+    private getService: GetDataService,
+    private router: Router
   ) {}
 
   ngOnInit(): void {
@@ -50,6 +51,11 @@ export class LoginComponent implements OnInit {
     },
     { validators: this.matchValidator('contra_usua', 'confirm_contra') }
   )
+
+  public logInForm = new FormGroup({
+    id_usua: new FormControl('', Validators.required),
+    contra_usua: new FormControl('', Validators.required),
+  })
 
   toggle() {
     this.isActive = !this.isActive
@@ -96,5 +102,25 @@ export class LoginComponent implements OnInit {
     }
 
     this.supabaseService.createUser(user)
+
+    this.singUpForm.reset()
+  }
+
+  onLogin(): void {
+    const user = this.logInForm.value.id_usua
+    const password = this.logInForm.value.contra_usua
+
+    this.getService.validUser(Number(user), password!).then((data) => {
+      sessionStorage.setItem('user', user!)
+      sessionStorage.setItem('password', password!)
+
+      if (data[1]) {
+        this.logInForm.reset()
+        this.router.navigate(['/admin'])
+      } else if (data[0]) {
+        this.logInForm.reset()
+        this.router.navigate(['/'])
+      }
+    })
   }
 }

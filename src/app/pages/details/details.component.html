@@ -1,4 +1,7 @@
-<app-nav-bar />
+<app-nav-bar
+  [userImg]="userPhoto"
+  [logged]="isLogged"
+/>
 
 <h3>{{ roomData.nom_habita }}</h3>
 <p>{{ roomData.cant_usua }}</p>
@@ -9,6 +12,36 @@
 <p>{{ item }}</p>
 }
 
-<form action="">
-  <button>Reservar</button>
+<form
+  [formGroup]="reservaForm"
+  (ngSubmit)="onSubmit()"
+>
+  <label>
+    Fecha inicial
+    <input
+      type="date"
+      placeholder=" "
+      formControlName="fec_inicio"
+      name="fec_inicio"
+    />
+  </label>
+
+  <label>
+    Fecha inicial
+    <input
+      type="date"
+      placeholder=" "
+      formControlName="fec_final"
+      name="fec_final"
+    />
+  </label>
+
+  <button
+    type="submit"
+    [disabled]="!reservaForm.valid"
+  >
+    Reservar
+  </button>
 </form>
+
+<a [routerLink]="['/']">Ir al inicio</a>

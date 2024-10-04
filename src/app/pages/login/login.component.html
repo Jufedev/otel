@@ -16,7 +16,11 @@
       </div>
     </div>
 
-    <form class="form">
+    <form
+      class="form"
+      [formGroup]="logInForm"
+      (ngSubmit)="onLogin()"
+    >
       <div class="cicon">
         <div class="icon">
           <img
@@ -34,7 +38,8 @@
             id="usuario1"
             class="finput"
             placeholder=" "
-            required
+            formControlName="id_usua"
+            name="id_usua"
           />
           <label
             for="usuario1"
@@ -49,7 +54,8 @@
             id="contraseña1"
             class="finput"
             placeholder=" "
-            required
+            formControlName="contra_usua"
+            name="contra_usua"
           />
           <label
             for="contraseña1"
@@ -64,11 +70,13 @@
           >Ir al inicio</a
         >
 
-        <input
-          type="button"
+        <button
+          type="submit"
           class="fsubmit"
-          value="Iniciar sesión"
-        />
+          [disabled]="!logInForm.valid"
+        >
+          Iniciar sesión
+        </button>
       </div>
     </form>
   </div>

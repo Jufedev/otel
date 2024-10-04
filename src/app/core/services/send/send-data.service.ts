@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { createClient, SupabaseClient } from '@supabase/supabase-js'
 import { environment } from 'src/environments/environment.development'
-import { Usuario } from '../../interfaces/response'
+import { Reserva, Usuario } from '../../interfaces/response'
 
 @Injectable({
   providedIn: 'root',
@@ -17,19 +17,28 @@ export class SendDataService {
   }
 
   async createUser(user: Usuario): Promise<Usuario[]> {
-    console.log(user)
-
     const { data, error } = await this.supabase
       .from('usuario')
       .insert(user)
       .select()
 
     if (error) {
-      console.log(error)
-
       return []
     }
 
     return data
+  }
+
+  async createReserva(reserva: Reserva): Promise<Reserva[]> {
+    const { data, error } = await this.supabase
+      .from('reserva')
+      .insert(reserva)
+      .select()
+
+    if (error) {
+      return []
+    }
+
+    return data!
   }
 }

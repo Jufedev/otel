@@ -12,9 +12,9 @@ export interface Habitacion {
 }
 
 export interface Reserva {
-  id_reserva: number
+  id_reserva?: number
   id_habita: number
-  id_usuario: number
+  id_usua: number
   fec_inicio: string
   fec_final: string
   estado: boolean

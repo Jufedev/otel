@@ -14,6 +14,8 @@ import { NavBarComponent } from '../../components/nav-bar/nav-bar.component'
 })
 export class HomeComponent implements OnInit {
   public roomData: Habitacion[] = []
+  public userPhoto = ''
+  public isLogged = false
 
   constructor(private supabaseService: GetDataService) {}
 
@@ -21,5 +23,12 @@ export class HomeComponent implements OnInit {
     await this.supabaseService
       .habitaciones()
       .then((data) => (this.roomData = data))
+
+    const idUser = sessionStorage.getItem('user')
+    if (idUser) {
+      const user = await this.supabaseService.usuario(Number(idUser))
+      this.userPhoto = user[0].imagen_usua
+      this.isLogged = true
+    }
   }
 }
