@@ -47,12 +47,13 @@ export class GetDataService {
     return data
   }
 
-  async reserva(id_room: string): Promise<Reserva[]> {
+  async reserva(id_room: number): Promise<Reserva[]> {
     const { data, error } = await this.supabase
       .from('reserva')
       .select()
       .eq('id_habita', id_room)
       .returns<Reserva[]>()
+
     if (error) {
       return []
     }
@@ -97,19 +98,5 @@ export class GetDataService {
     }
 
     return [false, false]
-  }
-
-  async validReserva(idRoom: number): Promise<Reserva[]> {
-    const { data, error } = await this.supabase
-      .from('reserva')
-      .select()
-      .eq('id_habita', idRoom)
-      .returns<Reserva[]>()
-
-    if (error) {
-      return []
-    }
-
-    return data
   }
 }

@@ -32,9 +32,12 @@ export class DetailsComponent {
     precio: 0,
   }
   private roomId = ''
+  private idUser!: string | null
   public userPhoto = ''
   public isLogged = false
-  public reservasRoom!: Promise<Reserva[]>
+  public reservasRoom!: Reserva[]
+  public reservado = false
+  private lastReserva!: Reserva | undefined
 
   constructor(
     private supabaseGetService: GetDataService,
@@ -59,18 +62,26 @@ export class DetailsComponent {
       .habitacion(this.roomId)
       .then((data) => (this.roomData = data[0]))
 
-    await this.supabaseGetService.reserva(this.roomId)
+    this.idUser = sessionStorage.getItem('user')
 
-    const idUser = sessionStorage.getItem('user')
-    if (idUser) {
-      const user = await this.supabaseGetService.usuario(Number(idUser))
+    if (this.idUser) {
+      const user = await this.supabaseGetService.usuario(Number(this.idUser))
       this.userPhoto = user[0].imagen_usua
       this.isLogged = true
     }
 
-    this.reservasRoom = this.supabaseGetService.validReserva(
-      Number(this.roomId)
-    )
+    this.supabaseGetService.reserva(Number(this.roomId)).then((data) => {
+      this.reservasRoom = data
+
+      this.lastReserva = this.reservasRoom
+        ?.slice()
+        .reverse()
+        .find((item) => item.id_usua === Number(this.idUser))
+
+      if (this.lastReserva?.estado) {
+        this.reservado = true
+      }
+    })
   }
 
   dateValidator(fec_inicio: string, fec_final: string): ValidatorFn {
@@ -80,6 +91,12 @@ export class DetailsComponent {
 
       if (dateControl!.errors && !dateControl!.errors?.['confirmedValidator']) {
         return null
+      }
+
+      if (sessionStorage.getItem('user') === null) {
+        const error = { confirmedValidator: 'User must be have logged.' }
+        dateControl!.setErrors(error)
+        return error
       }
 
       if (
@@ -105,34 +122,24 @@ export class DetailsComponent {
       estado: true,
     }
 
-    this.reservasRoom.then((data) => {
-      if (data.length !== 0) {
-        let contador = 0
-        for (let index = 0; index < data.length; index++) {
-          const ele = data[index]
-
-          if (
-            new Date(ele.fec_inicio).getTime() <=
-              new Date(reserva.fec_inicio).getTime() &&
-            new Date(reserva.fec_inicio).getTime() <=
-              new Date(ele.fec_final).getTime()
-          ) {
-            console.log('Fecha registrada')
-            break
-          }
-          contador++
-        }
-
-        if (contador === data.length) {
-          const dataReserva = this.supabaseSendService.createReserva(reserva)
-          dataReserva.then((data) => {
-            sessionStorage.setItem('reserva', `${data[0].id_reserva}`)
-            window.location.reload()
-          })
-        }
-      }
-    })
+    if (sessionStorage.getItem('user') === null) {
+      // ToDo: Hacer un dialogo que le diga al usuario que se logee
+      console.log('Usuario no registrado')
+    } else {
+      const dataReserva = this.supabaseSendService.createReserva(reserva)
+      dataReserva.then((data) => {
+        sessionStorage.setItem('reserva', `${data[0].id_reserva}`)
+        window.location.reload()
+      })
+    }
 
     this.reservaForm.reset()
+  }
+
+  async onCancel() {
+    await this.supabaseSendService.updateReserva(
+      Number(this.lastReserva?.id_reserva)
+    )
+    window.location.reload()
   }
 }

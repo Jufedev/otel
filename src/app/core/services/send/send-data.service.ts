@@ -41,4 +41,14 @@ export class SendDataService {
 
     return data!
   }
+
+  async updateReserva(idReserva: number): Promise<void> {
+    const { error } = await this.supabase
+      .from('reserva')
+      .update({ estado: false })
+      .eq('id_reserva', idReserva)
+
+    if (error) {
+    }
+  }
 }

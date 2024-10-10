@@ -7,9 +7,13 @@
 <p>{{ roomData.cant_usua }}</p>
 <p>{{ roomData.desc_habita }}</p>
 <p>{{ roomData.precio }}</p>
+
 <p>Servicios:</p>
 @for (item of roomData.serv_habita; track $index) {
 <p>{{ item }}</p>
+} @if (reservado) {
+<button (click)="onCancel()">Cancelar reservación</button>
+<button>Calificar</button>
 }
 
 <form
