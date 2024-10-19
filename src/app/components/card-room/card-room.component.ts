@@ -1,4 +1,4 @@
-import { Component, Input } from '@angular/core'
+import { Component, input, Input } from '@angular/core'
 
 @Component({
   selector: 'app-card-room',
@@ -10,5 +10,5 @@ import { Component, Input } from '@angular/core'
 export class CardRoomComponent {
   @Input() nombre: string = ''
   @Input() capacidad: number = 0
-  @Input() imgs: string[] = []
+  @Input() image: string[] = []
 }
