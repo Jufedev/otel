@@ -1,9 +1,70 @@
-img {
-  position: initial !important;
-  height: 100px !important;
-  width: 100px !important;
+
+
+.imglogin {
+  border-radius: 100px;
+  transform: translate(1000%);
+  position: relative !important;
+  height: 50px !important;
+  width: 50px !important;
 }
 
 a:hover {
   cursor: pointer;
 }
+
+
+.imageninicio{
+  object-fit: cover;
+  filter: brightness(70%);
+  width: 100%;
+  height: 500px;
+}
+
+ul{
+  position: absolute;
+  display: flex;
+  top: 20px;
+  left: 50%;
+  height: 0;
+  transform: translate(-50%, -50%);
+  z-index: 1;
+  position: absolute;
+}
+
+li{
+  text-decoration: underline;
+  list-style: none;
+  color: #ffffff;
+  margin-left: 20px;
+}
+
+.Subtitulos{
+  margin-top: 15px;
+}
+
+.Nombre{
+  text-decoration: none;
+  color:  #D2BEBF;
+  font-size: xx-large;
+}
+
+.titulos{
+  margin: 0;
+  padding: 0;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%, -150%);
+}
+
+.titulos2{
+  font-size: 40px;
+  text-align: center;
+  background: none;
+}
+
+.titulobienvenido{
+  font-weight: 100;
+  color: #ffffff;
+}
+
+

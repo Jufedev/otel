@@ -1,12 +1,12 @@
 <nav>
   <ul>
-    <li>Nosotros</li>
-    <li>OTE'L</li>
-    <li>Socios</li>
+    <li class="Subtitulos">NOSOTROS</li>
+    <li class="Nombre">OTE'L</li>
+    <li class="Subtitulos">SOCIOS</li>
     <li>
       @if (logged) {
       <a (click)="closeSesion()">
-        <img
+        <img 
           [ngSrc]="userImg"
           fill
           priority
@@ -15,7 +15,7 @@
       }@else {
 
       <a [routerLink]="['/login']">
-        <img
+        <img class="imglogin"
           [ngSrc]="userImg"
           fill
           priority
@@ -24,4 +24,13 @@
       }
     </li>
   </ul>
+  <img src="imagenprincipal.png" alt="" class="imageninicio" >
+  <div class="titulos">
+    <div class="titulos2">
+    <h1 class="titulobienvenido">BIENVENIDOS A OTE'L</h1>
+    <H3 class="titulobienvenido">VIVE TUS SUEÑOS</H3>
+    <img src="luna.png" alt="" height="70px">
+    </div>
+  </div>
+
 </nav>
