@@ -20,7 +20,8 @@
   </div>
 </div>
 
-@for (item of roomData; track item.id_habita) {
+@for (item of roomData; track item.id_habita) { @if (item.img_habita === null) {
+}@else {
 <a [routerLink]="['/room', item.id_habita]">
   <app-card-room
     [nombre]="item.nom_habita"
@@ -28,4 +29,4 @@
     [image]="item.img_habita"
   />
 </a>
-}
+} }

@@ -12,12 +12,24 @@
 @if (usersV) {
 <table>
   <tr>
-    <th>Id</th>
+    <th>
+      Id
+      <button (click)="sortUsers(1, 1)">^</button>
+      <button (click)="sortUsers(1, 2)">v</button>
+    </th>
     <th>Nombre</th>
     <th>Correo</th>
     <th>Telefono</th>
-    <th>Cantidad de reservas</th>
-    <th>Fecha de registro</th>
+    <th>
+      Cantidad de reservas
+      <button (click)="sortUsers(2, 1)">^</button>
+      <button (click)="sortUsers(2, 2)">v</button>
+    </th>
+    <th>
+      Fecha de registro
+      <button (click)="sortUsers(3, 1)">^</button>
+      <button (click)="sortUsers(3, 2)">v</button>
+    </th>
   </tr>
   @for (item of users; track item.id_usua) {
   <tr>

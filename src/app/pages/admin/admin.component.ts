@@ -79,4 +79,34 @@ export class AdminComponent implements OnInit {
     this.roomsV = true
     this.usersV = false
   }
+
+  sortUsers(option: number, ascdes: number) {
+    const sortBy = <K extends keyof Usuario>(key: K) => {
+      this.users.sort((a, b) => {
+        if (typeof a[key] === 'number' && typeof b[key] === 'number') {
+          return ascdes === 1 ? a[key] - b[key] : b[key] - a[key]
+        }
+
+        if (typeof a[key] === 'string' && typeof b[key] === 'string') {
+          return ascdes === 1
+            ? new Date(a[key]).getTime() - new Date(b[key]).getTime()
+            : new Date(b[key]).getTime() - new Date(a[key]).getTime()
+        }
+
+        return 0
+      })
+    }
+
+    switch (option) {
+      case 1:
+        sortBy('id_usua')
+        break
+      case 2:
+        sortBy('reservas_usua')
+        break
+      case 3:
+        sortBy('fec_registro')
+        break
+    }
+  }
 }
