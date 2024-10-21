@@ -126,7 +126,10 @@ export class DetailsComponent {
       // ToDo: Hacer un dialogo que le diga al usuario que se logee
       console.log('Usuario no registrado')
     } else {
-      const dataReserva = this.supabaseSendService.createReserva(reserva)
+      const dataReserva = this.supabaseSendService.createReserva(
+        reserva,
+        Number(sessionStorage.getItem('user'))
+      )
       dataReserva.then((data) => {
         sessionStorage.setItem('reserva', `${data[0].id_reserva}`)
         window.location.reload()

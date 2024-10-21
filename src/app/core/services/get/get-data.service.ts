@@ -4,6 +4,8 @@ import { createClient, SupabaseClient } from '@supabase/supabase-js'
 import {
   Habitacion,
   Reserva,
+  ReservaStats,
+  ReservaStatsAux,
   Usuario,
   Welcome,
 } from '../../interfaces/response'
@@ -61,11 +63,52 @@ export class GetDataService {
     return data
   }
 
+  async obtenerReservas(): Promise<ReservaStatsAux> {
+    const { data, error } = await this.supabase
+      .from('reserva')
+      .select()
+      .returns<Reserva[]>()
+
+    const reservasValidas = data?.filter((reserva) => reserva.estado)
+
+    const reservasPorHabitacion: { [key: number]: { [key: number]: number } } =
+      {}
+
+    reservasValidas!.forEach((reserva) => {
+      if (!reservasPorHabitacion[reserva.id_habita]) {
+        reservasPorHabitacion[reserva.id_habita] = {}
+      }
+      if (!reservasPorHabitacion[reserva.id_habita][reserva.id_usua]) {
+        reservasPorHabitacion[reserva.id_habita][reserva.id_usua] = 0
+      }
+      reservasPorHabitacion[reserva.id_habita][reserva.id_usua]++
+    })
+
+    if (error) {
+      return []
+    }
+
+    return reservasPorHabitacion
+  }
+
   async usuario(idUser: number): Promise<Usuario[]> {
     const { data, error } = await this.supabase
       .from('usuario')
       .select()
       .eq('id_usua', idUser)
+      .returns<Usuario[]>()
+
+    if (error) {
+      return []
+    }
+
+    return data
+  }
+
+  async obtenerUsuarios(): Promise<Usuario[]> {
+    const { data, error } = await this.supabase
+      .from('usuario')
+      .select()
       .returns<Usuario[]>()
 
     if (error) {

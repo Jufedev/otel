@@ -3,12 +3,29 @@
   [logged]="isLogged"
 />
 
+<img
+  src="imagenprincipal.png"
+  alt=""
+  class="imageninicio"
+/>
+<div class="titulos">
+  <div class="titulos2">
+    <h1 class="titulobienvenido">BIENVENIDOS A OTE'L</h1>
+    <H3 class="titulobienvenido">VIVE TUS SUEÑOS</H3>
+    <img
+      src="luna.png"
+      alt=""
+      height="70px"
+    />
+  </div>
+</div>
+
 @for (item of roomData; track item.id_habita) {
 <a [routerLink]="['/room', item.id_habita]">
   <app-card-room
     [nombre]="item.nom_habita"
     [capacidad]="item.cant_usua"
-    [image] = "item.img_habita"
+    [image]="item.img_habita"
   />
 </a>
 }

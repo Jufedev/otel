@@ -1,21 +1,26 @@
 <nav>
-  <ul>
-    <li class="Subtitulos">NOSOTROS</li>
-    <li class="Nombre">OTE'L</li>
-    <li class="Subtitulos">SOCIOS</li>
+  <ul class="nav-container">
+    <li class="links-container">
+      <ul>
+        <li class="Subtitulos">NOSOTROS</li>
+        <li class="Nombre">OTE'L</li>
+        <li class="Subtitulos">SOCIOS</li>
+      </ul>
+    </li>
     <li>
       @if (logged) {
       <a (click)="closeSesion()">
-        <img 
+        <img
+          class="imglogin"
           [ngSrc]="userImg"
           fill
           priority
         />
       </a>
       }@else {
-
       <a [routerLink]="['/login']">
-        <img class="imglogin"
+        <img
+          class="imglogin"
           [ngSrc]="userImg"
           fill
           priority
@@ -24,13 +29,5 @@
       }
     </li>
   </ul>
-  <img src="imagenprincipal.png" alt="" class="imageninicio" >
-  <div class="titulos">
-    <div class="titulos2">
-    <h1 class="titulobienvenido">BIENVENIDOS A OTE'L</h1>
-    <H3 class="titulobienvenido">VIVE TUS SUEÑOS</H3>
-    <img src="luna.png" alt="" height="70px">
-    </div>
-  </div>
-
 </nav>
+<div class="block-container"></div>
