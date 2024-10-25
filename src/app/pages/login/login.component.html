@@ -5,13 +5,13 @@
   >
     <div class="welcome">
       <div class="msg">
-        <h2>¡Hola de nuevo!</h2>
-        <p>Si aun no tienes cuenta por favor registrese aquí</p>
+        <h2>OTE'L</h2>
+        <p>¿Te imaginas un lugar perfecto si tener cuenta?</p>
         <button
           (click)="toggle()"
           class="sign-up-button"
         >
-          Registrarse
+          RESGITRAR
         </button>
       </div>
     </div>
@@ -28,10 +28,20 @@
             alt="Logo"
           />
         </div>
+
+        <div class="cicon2">
+          <div class="icon2">
+            <img src="Imagenlogin2.png" 
+            alt="Logo2">
+          </div>
+        </div>
+  
+
       </div>
+
       <h2 class="ftitle">Iniciar sesión</h2>
 
-      <div class="fcontainer">
+      <div class="fcontainer2">
         <div class="fgroup">
           <input
             type="number"
@@ -64,19 +74,21 @@
           >
         </div>
 
-        <a
-          class="crear"
-          [routerLink]="['/']"
-          >Ir al inicio</a
-        >
-
         <button
           type="submit"
           class="fsubmit"
           [disabled]="!logInForm.valid"
         >
-          Iniciar sesión
+          INICIAR
         </button>
+      </div>
+      <div class="line">
+        <div class="line2" ></div>
+            <a
+              class="crear"
+              [routerLink]="['/']"
+              >Ir al inicio</a>
+        <div class="line2" ></div> 
       </div>
     </form>
   </div>
@@ -208,8 +220,8 @@
 
     <div class="welcome">
       <div class="msg">
-        <h2>¡Estamos felices de tenerte aquí!</h2>
-        <p>Si ya tiene cuenta por favor inicia sesión aquí</p>
+        <h2>¡OTE'L!</h2>
+        <p>Lo que sueñas cuando ya tienes una cuenta </p>
         <button
           (click)="toggle()"
           class="sign-in-button"

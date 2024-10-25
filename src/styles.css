@@ -1,6 +1,6 @@
-*{
-    font-family: inter;
-    margin: 0%;
-    padding: 0%;
-    color: #1D1B20;
+body{
+    font-family: "inter";
+    margin: 0;
+    padding: 0;
+    background-color: #FFFAF7;
 }

@@ -26,7 +26,7 @@ export class HomeComponent implements OnInit {
       .then((data) => {
         let cont = 0
         data.forEach(ele=>{
-          if (cont===12) {
+          if (cont===2) {
             cont=0
           }
           ele.img_habita = [this.images[cont]]
