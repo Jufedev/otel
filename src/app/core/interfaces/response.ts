@@ -20,6 +20,22 @@ export interface Reserva {
   estado: boolean
 }
 
+export interface ReservaStatsAux {
+  [key: number]: {
+    [key: number]: number
+  }
+}
+
+export interface ReservaStats {
+  habitacion: string
+  reservas: Stats[]
+}
+
+export interface Stats {
+  nombreUsuario: string
+  cantidad: unknown
+}
+
 export interface Usuario {
   id_usua: number
   nom_usua: string

@@ -3,4 +3,60 @@
   [logged]="isLogged"
 />
 
+@if (isLogged) {
 <h3>PANEL DE ADMINISTRACIÓN</h3>
+
+<button (click)="onUsers()">Ver usuarios</button>
+<button (click)="onRooms()">Ver habitaciones y sus reservas</button>
+
+@if (usersV) {
+<table>
+  <tr>
+    <th>
+      Id
+      <button (click)="sortUsers(1, 1)">^</button>
+      <button (click)="sortUsers(1, 2)">v</button>
+    </th>
+    <th>Nombre</th>
+    <th>Correo</th>
+    <th>Telefono</th>
+    <th>
+      Cantidad de reservas
+      <button (click)="sortUsers(2, 1)">^</button>
+      <button (click)="sortUsers(2, 2)">v</button>
+    </th>
+    <th>
+      Fecha de registro
+      <button (click)="sortUsers(3, 1)">^</button>
+      <button (click)="sortUsers(3, 2)">v</button>
+    </th>
+  </tr>
+  @for (item of users; track item.id_usua) {
+  <tr>
+    <td>{{ item.id_usua }}</td>
+    <td>{{ item.nom_usua }}</td>
+    <td>{{ item.correo_usua }}</td>
+    <td>{{ item.tel_usua }}</td>
+    <td>{{ item.reservas_usua }}</td>
+    <td>{{ item.fec_registro }}</td>
+  </tr>
+  }
+</table>
+} @if (roomsV) {
+<table>
+  <tr>
+    <th>Habitacion</th>
+    <th>Reservas</th>
+  </tr>
+  @for (item of rooms; track $index) {
+  <tr>
+    <td>{{ item.habitacion }}</td>
+    <td>
+      @for (itemtwo of item.reservas; track $index) {
+      <p>{{ itemtwo.nombreUsuario }}:{{ itemtwo.cantidad }}</p>
+      }
+    </td>
+  </tr>
+  }
+</table>
+} }

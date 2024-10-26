@@ -3,6 +3,16 @@
   [logged]="isLogged"
 />
 
+<div>
+  @for (item of roomData.img_habita; track $index) {
+
+  <img
+    [src]="item"
+    alt=""
+  />
+  }
+</div>
+
 <h3>{{ roomData.nom_habita }}</h3>
 <p>{{ roomData.cant_usua }}</p>
 <p>{{ roomData.desc_habita }}</p>
