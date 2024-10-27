@@ -1,0 +1,101 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+.conta{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    justify-content: center;
+    padding: 20px;
+}
+
+img{
+    width: 200px;
+    margin-left: 10px;
+    height: 200px;
+    object-fit: cover;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    transition: transform 0.3s;
+}
+
+img:hover{
+    transform: scale(1.05);
+}
+
+
+
+#padre{
+    display: grid;
+    place-items: center;
+}
+.hijo{
+    height: 20px;
+    width: 20px;
+    background-color: aqua;
+}
+
+.descripcion{
+    display: grid;
+    place-items: center;
+}
+
+.descrip{
+    display: flex;
+}
+
+.des{
+    padding-right: 100px;
+    width: 700px;
+}
+
+h3{
+    color: #F1D5AF;
+    padding-bottom: 10px;
+}
+
+p{
+    padding-bottom: 20px;
+}
+
+.br{
+    border-radius: 20px;
+    height: 300px;
+    width: 4px;
+    background:#D2BEBFCC;
+    position: relative;
+    right: 50px;
+}
+
+.reserva{
+    width: 300px;
+    height: 250px;
+    border-radius: 10px;
+    border: #D2BEBFCC solid 4px;
+    margin-bottom: 20px;
+}
+
+.rese {
+    text-align: center;
+}
+
+.rese a{
+    border-radius: 20px;
+    border: #D2BEBFCC solid 3px;
+    padding: 10px;
+    text-decoration: none;
+    color: black;
+    position: relative;
+    top: 150px;
+}
+
+.rese h5{
+    position: relative;
+    top: 130px;
+}
+
+

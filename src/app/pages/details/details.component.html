@@ -3,7 +3,10 @@
   [logged]="isLogged"
 />
 
-<div>
+
+
+<div class="conta">
+  <div class="conlu">
   @for (item of roomData.img_habita; track $index) {
 
   <img
@@ -12,56 +15,70 @@
   />
   }
 </div>
+</div>
 
-<h3>{{ roomData.nom_habita }}</h3>
-<p>{{ roomData.cant_usua }}</p>
-<p>{{ roomData.desc_habita }}</p>
-<p>{{ roomData.precio }}</p>
+<div class="descripcion">
+  <div class="descrip">
+    <div class="des">
+      <h3>{{ roomData.nom_habita }}</h3>
+      <p>{{ roomData.desc_habita }}</p>
+      <p>{{ roomData.cant_usua }}</p>
+      <p>{{ roomData.precio }}</p>
+    </div>
 
-<p>Servicios:</p>
-@for (item of roomData.serv_habita; track $index) {
-<p>{{ item }}</p>
-}
+    <div class="br"></div>
 
-<h3>Reservas:</h3>
-
-@if (reservado) {
-<button (click)="onCancel()">Cancelar reservación</button>
-<button>Calificar</button>
-}@else { @if (idUser != null) {
-<form
-  [formGroup]="reservaForm"
-  (ngSubmit)="onSubmit()"
->
-  <label>
-    Fecha inicial
-    <input
-      type="date"
-      placeholder=" "
-      formControlName="fec_inicio"
-      name="fec_inicio"
-    />
-  </label>
-
-  <label>
-    Fecha inicial
-    <input
-      type="date"
-      placeholder=" "
-      formControlName="fec_final"
-      name="fec_final"
-    />
-  </label>
-
-  <button
-    type="submit"
-    [disabled]="!reservaForm.valid"
-  >
-    Reservar
-  </button>
-</form>
-} @else {
-<h5>DEBE INICIAR SESIÓN PARA RESERVAR</h5>
-} }
-
-<a [routerLink]="['/']">Ir al inicio</a>
+    <div class="servis">
+      <h3>Servicios:</h3>
+      @for (item of roomData.serv_habita; track $index) {
+      <p>{{ item }}</p>   
+      }
+    
+      <div class="reserva">
+        <div class="rese">
+      <h3>RESERVAR</h3>
+      
+      @if (reservado) {
+      <button (click)="onCancel()">Cancelar reservación</button>
+      <button>Calificar</button>
+      }@else { @if (idUser != null) {
+      <form
+        [formGroup]="reservaForm"
+        (ngSubmit)="onSubmit()"
+      >
+        <label>
+          Fecha inicial
+          <input
+            type="date"
+            placeholder=" "
+            formControlName="fec_inicio"
+            name="fec_inicio"
+          />
+        </label>
+      
+        <label>
+          Fecha inicial
+          <input
+            type="date"
+            placeholder=" "
+            formControlName="fec_final"
+            name="fec_final"
+          />
+        </label>
+      
+        <button
+          type="submit"
+          [disabled]="!reservaForm.valid"
+        >
+          Reservar
+        </button>
+      </form>
+      } @else {
+      <h5>DEBE INICIAR SESIÓN PARA RESERVAR</h5>
+      } }
+      
+      <a [routerLink]="['/']">Ir al inicio</a>
+      </div>
+      </div>
+  </div>
+</div>
