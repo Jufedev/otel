@@ -32,7 +32,7 @@ export class DetailsComponent {
     precio: 0,
   }
   private roomId = ''
-  private idUser!: string | null
+  public idUser!: string | null
   public userPhoto = ''
   public isLogged = false
   public reservasRoom!: Reserva[]
@@ -93,12 +93,6 @@ export class DetailsComponent {
         return null
       }
 
-      if (sessionStorage.getItem('user') === null) {
-        const error = { confirmedValidator: 'User must be have logged.' }
-        dateControl!.setErrors(error)
-        return error
-      }
-
       if (
         new Date(control!.value).getTime() >
         new Date(dateControl!.value).getTime()
@@ -122,19 +116,15 @@ export class DetailsComponent {
       estado: true,
     }
 
-    if (sessionStorage.getItem('user') === null) {
-      // ToDo: Hacer un dialogo que le diga al usuario que se logee
-      console.log('Usuario no registrado')
-    } else {
-      const dataReserva = this.supabaseSendService.createReserva(
-        reserva,
-        Number(sessionStorage.getItem('user'))
-      )
-      dataReserva.then((data) => {
-        sessionStorage.setItem('reserva', `${data[0].id_reserva}`)
-        window.location.reload()
-      })
-    }
+    const dataReserva = this.supabaseSendService.createReserva(
+      reserva,
+      Number(sessionStorage.getItem('user')),
+      Number(this.roomId)
+    )
+    dataReserva.then((data) => {
+      sessionStorage.setItem('reserva', `${data[0].id_reserva}`)
+      window.location.reload()
+    })
 
     this.reservaForm.reset()
   }

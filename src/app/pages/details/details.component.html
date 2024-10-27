@@ -21,11 +21,14 @@
 <p>Servicios:</p>
 @for (item of roomData.serv_habita; track $index) {
 <p>{{ item }}</p>
-} @if (reservado) {
-<button (click)="onCancel()">Cancelar reservación</button>
-<button>Calificar</button>
 }
 
+<h3>Reservas:</h3>
+
+@if (reservado) {
+<button (click)="onCancel()">Cancelar reservación</button>
+<button>Calificar</button>
+}@else { @if (idUser != null) {
 <form
   [formGroup]="reservaForm"
   (ngSubmit)="onSubmit()"
@@ -57,5 +60,8 @@
     Reservar
   </button>
 </form>
+} @else {
+<h5>DEBE INICIAR SESIÓN PARA RESERVAR</h5>
+} }
 
 <a [routerLink]="['/']">Ir al inicio</a>

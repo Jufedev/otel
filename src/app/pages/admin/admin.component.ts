@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core'
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component'
 import { GetDataService } from 'src/app/core/services/get/get-data.service'
-import { Router } from '@angular/router'
+import { Router, RouterLink } from '@angular/router'
 import {
   Reserva,
   ReservaStats,
@@ -12,19 +12,22 @@ import {
 @Component({
   selector: 'app-admin',
   standalone: true,
-  imports: [NavBarComponent],
+  imports: [NavBarComponent, RouterLink],
   templateUrl: './admin.component.html',
   styleUrl: './admin.component.css',
 })
 export class AdminComponent implements OnInit {
   public userPhoto = ''
   public isLogged = false
+  public isAdmin = false
 
   public users!: Usuario[]
   public rooms!: ReservaStats[]
 
   public usersV: boolean = false
   public roomsV: boolean = false
+
+  public rolUser!: string
 
   constructor(
     private supabaseService: GetDataService,
@@ -37,9 +40,16 @@ export class AdminComponent implements OnInit {
       const usuario = await this.supabaseService.usuario(Number(idUser))
       this.userPhoto = usuario[0].imagen_usua
       this.isLogged = true
+      this.rolUser = usuario[0].rol
     }
 
+    console.log(this.rolUser)
+
     if (!this.isLogged) {
+      this.router.navigate(['/'])
+    }
+
+    if (this.rolUser != 'admin') {
       this.router.navigate(['/'])
     }
 

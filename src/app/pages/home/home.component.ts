@@ -16,29 +16,17 @@ export class HomeComponent implements OnInit {
   public roomData: Habitacion[] = []
   public userPhoto = ''
   public isLogged = false
-  public images = ['Habitacion1.avif', 'Aries2.png']
 
   constructor(private supabaseService: GetDataService) {}
 
   async ngOnInit() {
-<<<<<<< HEAD
-    await this.supabaseService
-      .habitaciones()
-      .then((data) => {
-        let cont = 0
-        data.forEach(ele=>{
-          if (cont===2) {
-            cont=0
-          }
-          ele.img_habita = [this.images[cont]]
-          cont++
-        })
-        this.roomData = data})
-=======
     await this.supabaseService.habitaciones().then((data) => {
       this.roomData = data
     })
->>>>>>> 7700ddcac13c8f9032aac301b24fc9852f68e957
+
+    await this.supabaseService.habitaciones().then((data) => {
+      this.roomData = data
+    })
 
     const idUser = sessionStorage.getItem('user')
     if (idUser) {

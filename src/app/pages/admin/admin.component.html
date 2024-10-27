@@ -6,6 +6,8 @@
 @if (isLogged) {
 <h3>PANEL DE ADMINISTRACIÓN</h3>
 
+<a [routerLink]="['/']">Ir al inicio</a>
+
 <button (click)="onUsers()">Ver usuarios</button>
 <button (click)="onRooms()">Ver habitaciones y sus reservas</button>
 

@@ -30,17 +30,46 @@ export class SendDataService {
     return data
   }
 
-  async createReserva(reserva: Reserva, idUser: number): Promise<Reserva[]> {
-    const { data, error } = await this.supabase
-      .from('reserva')
-      .insert(reserva)
-      .select()
+  async createReserva(
+    reserva: Reserva,
+    idUser: number,
+    idRoom: number
+  ): Promise<Reserva[]> {
+    let isReserved = false
+
+    await this.getService.reserva(idRoom).then((data) => {
+      for (let index = 0; index < data.length; index++) {
+        const ele = data[index]
+        if (
+          (new Date(ele.fec_inicio).getTime() <
+            new Date(reserva.fec_inicio).getTime() &&
+            ele.estado) ||
+          (new Date(reserva.fec_inicio).getTime() <
+            new Date(ele.fec_final).getTime() &&
+            ele.estado)
+        ) {
+          isReserved = true
+          break
+        }
+      }
+    })
+
+    if (isReserved) {
+      console.log('Fecha invalida')
+      return []
+    }
 
     await this.getService.usuario(idUser).then(async (data) => {
       await this.supabase
         .from('usuario')
         .update({ reservas_usua: data[0].reservas_usua + 1 })
+        .eq('id_usua', idUser)
     })
+
+    const { data, error } = await this.supabase
+      .from('reserva')
+      .insert(reserva)
+      .select()
 
     if (error) {
       return []
