@@ -65,9 +65,13 @@
     Calificar
   </button>
 </form>
-}@else { @for (item of resena; track $index) {
-<p>{{ item.c_calidad_precio }}</p>
-<p>{{ item.c_limpieza }}</p>
-<p>{{ item.c_ubicacion }}</p>
-<p>{{ item.c_wifi }}</p>
+}@else {
+<h4>Gracias!</h4>
+<h4>Ya calificaste nuestros servicios!</h4>
+<p>Aquí tu resumen:</p>
+@for (item of resena; track $index) {
+<p>Calidad - precio: {{ item.c_calidad_precio }}</p>
+<p>Limpieza: {{ item.c_limpieza }}</p>
+<p>Ubicación: {{ item.c_ubicacion }}</p>
+<p>Wifi: {{ item.c_wifi }}</p>
 } }
