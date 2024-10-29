@@ -20,6 +20,16 @@ export interface Reserva {
   estado: boolean
 }
 
+export interface Resena {
+  id_resena?: number
+  id_habita: number
+  id_usua: number
+  c_limpieza: number
+  c_ubicacion: number
+  c_wifi: number
+  c_calidad_precio: number
+}
+
 export interface ReservaStatsAux {
   [key: number]: {
     [key: number]: number

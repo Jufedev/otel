@@ -1,5 +1,5 @@
 import { Component } from '@angular/core'
-import { ActivatedRoute, RouterLink } from '@angular/router'
+import { ActivatedRoute, Router, RouterLink } from '@angular/router'
 import { Habitacion, Reserva } from 'src/app/core/interfaces/response'
 import { GetDataService } from 'src/app/core/services/get/get-data.service'
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component'
@@ -42,7 +42,8 @@ export class DetailsComponent {
   constructor(
     private supabaseGetService: GetDataService,
     private supabaseSendService: SendDataService,
-    private route: ActivatedRoute
+    private route: ActivatedRoute,
+    private router: Router
   ) {}
 
   public reservaForm = new FormGroup(
@@ -134,5 +135,9 @@ export class DetailsComponent {
       Number(this.lastReserva?.id_reserva)
     )
     window.location.reload()
+  }
+
+  onRate(){
+    this.router.navigate([`room/${this.roomId}/rate`])
   }
 }

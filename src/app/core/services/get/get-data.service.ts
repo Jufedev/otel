@@ -3,6 +3,7 @@ import { environment } from '../../../../environments/environment.development'
 import { createClient, SupabaseClient } from '@supabase/supabase-js'
 import {
   Habitacion,
+  Resena,
   Reserva,
   ReservaStats,
   ReservaStatsAux,
@@ -120,6 +121,21 @@ export class GetDataService {
 
   generarFoto(): Observable<Welcome> {
     return this.http.get<Welcome>('https://randomuser.me/api/')
+  }
+
+
+  async resena(id_user: number): Promise<Resena[]> {
+    const { data, error } = await this.supabase
+      .from('resenas')
+      .select()
+      .eq('id_usua', id_user)
+      .returns<Resena[]>()
+
+    if (error) {
+      return []
+    }
+
+    return data
   }
 
   async validUser(user: number, password: string): Promise<boolean[]> {

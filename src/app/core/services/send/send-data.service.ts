@@ -1,7 +1,7 @@
 import { Injectable } from '@angular/core'
 import { createClient, SupabaseClient } from '@supabase/supabase-js'
 import { environment } from 'src/environments/environment.development'
-import { Reserva, Usuario } from '../../interfaces/response'
+import { Resena, Reserva, Usuario } from '../../interfaces/response'
 import { GetDataService } from '../get/get-data.service'
 
 @Injectable({
@@ -28,6 +28,16 @@ export class SendDataService {
     }
 
     return data
+  }
+
+  async createResena(resena: Resena):Promise<void>{
+    const { error } = await this.supabase
+      .from('resenas')
+      .insert(resena)
+
+    if (error) {
+    }
+
   }
 
   async createReserva(

@@ -3,8 +3,6 @@
   [logged]="isLogged"
 />
 
-
-
 <div class="conta">
   <div class="conlu">
   @for (item of roomData.img_habita; track $index) {
@@ -39,8 +37,9 @@
       <h3>RESERVAR</h3>
       
       @if (reservado) {
+        <h4>Ya tienes una reserva!</h4>
       <button (click)="onCancel()">Cancelar reservación</button>
-      <button>Calificar</button>
+      <button (click)="onRate()">Calificar</button>
       }@else { @if (idUser != null) {
       <form
         [formGroup]="reservaForm"

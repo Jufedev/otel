@@ -1,0 +1,38 @@
+<app-nav-bar [userImg]="userPhoto" [logged]="isLogged" />
+
+<form class="form" [formGroup]="rateForm" (ngSubmit)="onSubmit()">
+    <h5>Califica nuestra limpieza:</h5>
+    @for (option of options; track $index) {
+    <label>
+        <input type="radio" formControlName="c_limpieza" [value]="option" />
+        {{ option }}
+    </label>
+    }
+
+    <h5>Califica nuestra ubicacion:</h5>
+    @for (option of options; track $index) {
+    <label>
+        <input type="radio" formControlName="c_ubicacion" [value]="option" />
+        {{ option }}
+    </label>
+    }
+
+    <h5>Califica nuestro wifi:</h5>
+    @for (option of options; track $index) {
+    <label>
+        <input type="radio" formControlName="c_wifi" [value]="option" />
+        {{ option }}
+    </label>
+    }
+
+    <h5>Califica nuestra calidad-precio:</h5>
+    @for (option of options; track $index) {
+    <label>
+        <input type="radio" formControlName="c_calidad_precio" [value]="option" />
+        {{ option }}
+    </label>
+    }
+
+    <button type="submit" [disabled]="!rateForm.valid">Calificar</button>
+
+</form>
