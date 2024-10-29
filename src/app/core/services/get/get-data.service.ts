@@ -64,6 +64,20 @@ export class GetDataService {
     return data
   }
 
+  async obtenerResena(id_resena: number): Promise<Resena[]> {
+    const { data, error } = await this.supabase
+      .from('resenas')
+      .select()
+      .eq('id_resena', id_resena)
+      .returns<Resena[]>()
+
+    if (error) {
+      return []
+    }
+
+    return data
+  }
+
   async obtenerReservas(): Promise<ReservaStatsAux> {
     const { data, error } = await this.supabase
       .from('reserva')
@@ -122,7 +136,6 @@ export class GetDataService {
   generarFoto(): Observable<Welcome> {
     return this.http.get<Welcome>('https://randomuser.me/api/')
   }
-
 
   async resena(id_user: number): Promise<Resena[]> {
     const { data, error } = await this.supabase

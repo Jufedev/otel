@@ -96,7 +96,8 @@ export class DetailsComponent {
 
       if (
         new Date(control!.value).getTime() >
-        new Date(dateControl!.value).getTime()
+          new Date(dateControl!.value).getTime() ||
+        new Date(control!.value).getTime() < new Date().getTime()
       ) {
         const error = { confirmedValidator: 'Date not must be in past.' }
         dateControl!.setErrors(error)
@@ -137,7 +138,7 @@ export class DetailsComponent {
     window.location.reload()
   }
 
-  onRate(){
+  onRate() {
     this.router.navigate([`room/${this.roomId}/rate`])
   }
 }
