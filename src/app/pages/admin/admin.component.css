@@ -10,21 +10,52 @@ td {
 }
 
 
-.regresar{
-  text-align: center;
+
+.button{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 30px;
+  display: flex;
+  height: 3em;
+  width: 110px;
+  align-items: center;
+  justify-content: center;
+  background-color: #eeeeee4b;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  background: #D2BEBF;
 }
 
-a{
-  height: 100px;
-  width: 100px;
-  border-radius: 100px;
-  border: solid 4px #D2BEBF;
-  background:none;
-  padding: 10px;
-  font-size: x-large;
-  color: #F1D5AF;
-  text-decoration: none;
+button > svg {
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 20px;
+  transition: all 0.4s ease-in;
 }
+
+button:hover > svg {
+  font-size: 1.2em;
+  transform: translateX(-5px);
+}
+
+button:hover {
+  box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+  transform: translateY(-2px);
+}
+
+.siguientes > button{
+  margin-left: 5px;
+  font-size: smaller;
+  background: #ffffff;
+  border: none;
+}
+
+
 .botones{
   display: flex;
   justify-content: center;
@@ -37,7 +68,7 @@ a{
   margin: 20px;
   font-size: x-large;
   height: 50px;
-  width: 300px;
+  width: 250px;
   background: none;
   border: solid 3px #D2BEBF;
   color: #F1D5AF;

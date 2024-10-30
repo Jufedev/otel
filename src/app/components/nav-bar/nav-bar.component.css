@@ -50,17 +50,16 @@ li {
 }
 
 nav {
-  top: 0;
+  top: 0px;
   z-index: 1;
   width: 100%;
   position: fixed;
-  height: 80px;
-  background-color: rgba(0, 0, 0, 0.55);
-  backdrop-filter: blur(80px);
+  height: 30px;
+  background-color: transparent;
 }
 
-.block-container {
+/*.block-container {
   content: '';
   height: 80px;
   background-color: rgba(0, 0, 0, 0);
-}
+}*/

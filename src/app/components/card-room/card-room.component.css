@@ -20,6 +20,14 @@ div:hover {
   border: #F1D5AF solid 1px;
   width: 400px;
   border-radius: 20px;
+  transition: 0.5s;
+}
+
+#hover:hover{
+  transform: translateY(-20px);
+  box-shadow: 0px 20px 20px rgba(0, 0, 0, 0.1),
+    -4px -4px 12px rgba(0, 0, 0, 0.08);
+  transition: 0.5s;
 }
 
 .titulos{
