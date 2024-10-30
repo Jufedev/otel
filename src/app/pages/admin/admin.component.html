@@ -6,12 +6,17 @@
 @if (isLogged) {
 <h3>PANEL DE ADMINISTRACIÓN</h3>
 
-<a [routerLink]="['/']">Ir al inicio</a>
+<div class="regresar">
+  <a [routerLink]="['/']"><--</a>
+</div>
 
-<button (click)="onUsers()">Ver usuarios</button>
-<button (click)="onRooms()">Ver habitaciones y sus reservas</button>
+<div class="botones">
+  <button (click)="onUsers()">Usuarios</button>
+  <button (click)="onRooms()">Hab. & reservas</button>
+</div>
 
 @if (usersV) {
+<div class="conte">
 <table>
   <tr>
     <th>
@@ -44,7 +49,9 @@
   </tr>
   }
 </table>
+</div>
 } @if (roomsV) {
+<div class="conte">
 <table>
   <tr>
     <th>Habitacion</th>
@@ -61,4 +68,7 @@
   </tr>
   }
 </table>
+</div>
 } }
+
+

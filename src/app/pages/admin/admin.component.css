@@ -1,8 +1,76 @@
 h3 {
-  color: red;
+  color: #D2BEBFCC;
+  top: 10px;
+  text-align: center;
   font-size: 70px;
 }
 
 td {
   max-width: max-content;
+}
+
+
+.regresar{
+  text-align: center;
+}
+
+a{
+  height: 100px;
+  width: 100px;
+  border-radius: 100px;
+  border: solid 4px #D2BEBF;
+  background:none;
+  padding: 10px;
+  font-size: x-large;
+  color: #F1D5AF;
+  text-decoration: none;
+}
+.botones{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.botones > button{
+  cursor: pointer;
+  padding: 0px;
+  margin: 20px;
+  font-size: x-large;
+  height: 50px;
+  width: 300px;
+  background: none;
+  border: solid 3px #D2BEBF;
+  color: #F1D5AF;
+  border-radius: 20px;
+  transition: 0.3s;
+}
+
+
+.botones > button:hover{
+  color: aliceblue;
+  background-color: #D2BEBF;
+  transition: 1s;
+}
+
+.conte{
+  margin: 10px auto;
+  width: 1200px;
+}
+
+table{
+  text-align: left;
+  border: solid 2px #D2BEBFCC;
+  width: 100%;
+  border-collapse: collapse;
+  background-color: none;
+}
+
+
+th, td{
+  border-bottom: solid 2px #D2BEBFCC;
+  padding: 10px;
+}
+
+tr > th{
+  background-color: #D2BEBFCC;
 }

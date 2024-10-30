@@ -28,3 +28,42 @@
   font-weight: 100;
   color: #ffffff;
 }
+
+
+
+footer{
+  height: 0;
+  width: 10px;
+  position: relative;
+  left: 25%;
+}
+section{
+  height: 10px;
+  background: #F1D5AF;
+}
+th{
+  padding: 80px;
+}
+
+h3{
+  color: #F1D5AF;
+}
+
+a{
+  color: #BcBcBc ;
+  text-decoration: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+a:hover{
+  transition: 0.3s;
+  color: #000;
+}
+
+li{
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0;
+}

@@ -99,3 +99,44 @@ p{
 }
 
 
+
+.linea{
+    border-radius: 20px;
+    width: 80%;
+    height: 4px;
+    background: #D2BEBFCC;
+    margin: 20px;
+}
+
+footer{
+    margin: 20px;
+}
+
+th{
+    padding-left: 80px;
+}
+
+h3{
+    color: #F1D5AF;
+}
+
+a{
+    color: #BcBcBc ;
+    text-decoration: none;
+    transition: 0.3s;
+    cursor: pointer;
+}
+
+a:hover{
+    transition: 0.3s;
+    color: #000;
+}
+
+li{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 8px 0;
+}
+
+
