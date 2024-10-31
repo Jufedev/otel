@@ -1,0 +1,26 @@
+footer {
+  background-color: brown;
+}
+
+h3 {
+  color: #f1d5af;
+}
+
+a {
+  color: #bcbcbc;
+  text-decoration: none;
+  transition: 0.3s;
+  cursor: pointer;
+}
+
+a:hover {
+  transition: 0.3s;
+  color: #000;
+}
+
+li {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 8px 0;
+}

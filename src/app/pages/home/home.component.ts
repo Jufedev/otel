@@ -4,11 +4,12 @@ import { Habitacion } from '../../core/interfaces/response'
 import { CardRoomComponent } from '../../components/card-room/card-room.component'
 import { RouterLink } from '@angular/router'
 import { NavBarComponent } from '../../components/nav-bar/nav-bar.component'
+import { FooterComponent } from 'src/app/components/footer/footer.component'
 
 @Component({
   selector: 'app-home',
   standalone: true,
-  imports: [CardRoomComponent, RouterLink, NavBarComponent],
+  imports: [CardRoomComponent, RouterLink, NavBarComponent, FooterComponent],
   templateUrl: './home.component.html',
   styleUrl: './home.component.css',
 })

@@ -5,14 +5,18 @@
 
 <div class="conta">
   <div class="conlu">
-  @for (item of roomData.img_habita; track $index) {
-
-  <img
-    [src]="item"
-    alt=""
-  />
-  }
-</div>
+    <img
+      [src]="roomData.img_habita[0]"
+      alt=""
+      class="portada-img"
+    />
+    @for (item of roomData.img_habita.slice(1,-1); track $index) {
+    <img
+      [src]="item"
+      alt=""
+    />
+    }
+  </div>
 </div>
 
 <div class="descripcion">
@@ -24,85 +28,74 @@
       <p>Precio: $ {{ roomData.precio }}</p>
     </div>
 
+    <div>
+      <p>Nuestras calificaciones:</p>
+      <p>Calidad - precio: {{ total_c_calidad_precio }}</p>
+      <p>Limpieza: {{ total_c_limpieza }}</p>
+      <p>Ubicación: {{ total_c_ubicacion }}</p>
+      <p>Wifi: {{ total_c_wifi }}</p>
+
+      <p>Nuestros usuarios dicen que esta habitación es un: {{ total_c }}</p>
+    </div>
+
     <div class="br"></div>
 
     <div class="servis">
       <h3>Servicios:</h3>
       @for (item of roomData.serv_habita; track $index) {
-      <p>{{ item }}</p>   
+      <p>{{ item }}</p>
       }
-    
+
       <div class="reserva">
         <div class="rese">
-      <h3>RESERVAR</h3>
-      
-      @if (reservado) {
-        <h4>Ya tienes una reserva!</h4>
-      <button (click)="onCancel()">Cancelar reservación</button>
-      <button (click)="onRate()">Calificar</button>
-      }@else { @if (idUser != null) {
-      <form
-        [formGroup]="reservaForm"
-        (ngSubmit)="onSubmit()"
-      >
-        <label>
-          Fecha inicial
-          <input
-            type="date"
-            placeholder=" "
-            formControlName="fec_inicio"
-            name="fec_inicio"
-          />
-        </label>
-      
-        <label>
-          Fecha inicial
-          <input
-            type="date"
-            placeholder=" "
-            formControlName="fec_final"
-            name="fec_final"
-          />
-        </label>
-      
-        <button
-          type="submit"
-          [disabled]="!reservaForm.valid"
-        >
-          Reservar
-        </button>
-      </form>
-      } @else {
-      <h5>DEBE INICIAR SESIÓN PARA RESERVAR</h5>
-      } }
-      
-      <a [routerLink]="['/']">Ir al inicio</a>
+          <h3>RESERVAR</h3>
+
+          @if (reservado) {
+          <h4>Ya tienes una reserva!</h4>
+          <button (click)="onCancel()">Cancelar reservación</button>
+          <button (click)="onRate()">Calificar</button>
+          }@else { @if (idUser != null) {
+          <form
+            [formGroup]="reservaForm"
+            (ngSubmit)="onSubmit()"
+          >
+            <label>
+              Fecha inicial
+              <input
+                type="date"
+                placeholder=" "
+                formControlName="fec_inicio"
+                name="fec_inicio"
+              />
+            </label>
+
+            <label>
+              Fecha inicial
+              <input
+                type="date"
+                placeholder=" "
+                formControlName="fec_final"
+                name="fec_final"
+              />
+            </label>
+
+            <button
+              type="submit"
+              [disabled]="!reservaForm.valid"
+            >
+              Reservar
+            </button>
+          </form>
+          } @else {
+          <h5>DEBE INICIAR SESIÓN PARA RESERVAR</h5>
+          } }
+
+          <a [routerLink]="['/']">Ir al inicio</a>
+        </div>
       </div>
-      </div>
+    </div>
   </div>
+  <div class="linea"></div>
 </div>
 
-<div class="linea"></div>
-
-<footer>
-  <section>
-  <th>
-    <h3>REDES</h3>
-    <li><a href="">Facebook</a></li>
-    <li><a href="">Instragram</a></li>
-    <li><a href="">Tik-Tok</a></li>
-  </th>
-
-  <th>
-    <h3>OTE'L</h3>
-    <li><a href="">Nosotros</a></li>
-    <li><a href="">Atencion</a></li>
-    <li><a href="">Ubicacion</a></li>
-  </th>
-
-  <th>
-    <h3>Anfritiones</h3>
-    <li><a href="">La Sociedad</a></li>
-  </th>
-</section>
-</footer>
+<app-footer />

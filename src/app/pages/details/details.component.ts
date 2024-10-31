@@ -12,11 +12,12 @@ import {
   Validators,
 } from '@angular/forms'
 import { SendDataService } from 'src/app/core/services/send/send-data.service'
+import { FooterComponent } from '../../components/footer/footer.component'
 
 @Component({
   selector: 'app-details',
   standalone: true,
-  imports: [NavBarComponent, ReactiveFormsModule, RouterLink],
+  imports: [NavBarComponent, ReactiveFormsModule, RouterLink, FooterComponent],
   templateUrl: './details.component.html',
   styleUrl: './details.component.css',
 })
@@ -38,6 +39,12 @@ export class DetailsComponent {
   public reservasRoom!: Reserva[]
   public reservado = false
   private lastReserva!: Reserva | undefined
+
+  public total_c = 0
+  public total_c_calidad_precio = 0
+  public total_c_limpieza = 0
+  public total_c_ubicacion = 0
+  public total_c_wifi = 0
 
   constructor(
     private supabaseGetService: GetDataService,
@@ -83,6 +90,29 @@ export class DetailsComponent {
         this.reservado = true
       }
     })
+
+    const resenas = await this.supabaseGetService.resenaRate(
+      Number(this.roomId)
+    )
+
+    resenas.forEach((ele) => {
+      this.total_c_calidad_precio += ele.c_calidad_precio
+      this.total_c_limpieza += ele.c_limpieza
+      this.total_c_ubicacion += ele.c_ubicacion
+      this.total_c_wifi += ele.c_wifi
+    })
+
+    this.total_c_calidad_precio = this.total_c_calidad_precio / resenas.length
+    this.total_c_limpieza = this.total_c_limpieza / resenas.length
+    this.total_c_ubicacion = this.total_c_ubicacion / resenas.length
+    this.total_c_wifi = this.total_c_wifi / resenas.length
+
+    this.total_c =
+      (this.total_c_calidad_precio +
+        this.total_c_limpieza +
+        this.total_c_ubicacion +
+        this.total_c_wifi) /
+      4
   }
 
   dateValidator(fec_inicio: string, fec_final: string): ValidatorFn {

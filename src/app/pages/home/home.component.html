@@ -4,57 +4,35 @@
 />
 
 <div class="Bienvenida">
-<img
-  src="imagenprincipal.png"
-  alt=""
-  class="imageninicio"
-/>
-<div class="titulos">
-  <div class="titulos2">
-    <h1 class="titulobienvenido">BIENVENIDOS A OTE'L</h1>
-    <H3 class="titulobienvenido">VIVE TUS SUEÑOS</H3>
-    <img
-      src="luna.png"
-      alt=""
-      height="70px"
-    />
+  <img
+    src="imagenprincipal.png"
+    alt=""
+    class="imageninicio"
+  />
+  <div class="titulos">
+    <div class="titulos2">
+      <h1 class="titulobienvenido">BIENVENIDOS A OTE'L</h1>
+      <H3 class="titulobienvenido">VIVE TUS SUEÑOS</H3>
+      <img
+        src="luna.png"
+        alt=""
+        height="70px"
+      />
+    </div>
   </div>
 </div>
-</div>
 
-@for (item of roomData; track item.id_habita) { @if (item.img_habita === null) {
-}@else {
-<a [routerLink]="['/room', item.id_habita]">
+<div class="container-cards">
+  @for (item of roomData; track item.id_habita) { @if (item.img_habita === null)
+  { }@else {
   <app-card-room
+    class="cards"
+    [id_habita]="item.id_habita"
     [nombre]="item.nom_habita"
     [capacidad]="item.cant_usua"
     [image]="item.img_habita"
   />
-</a>
-} }
+  } }
+</div>
 
-
-<footer>
-  <section>
-  <th>
-    <h3>REDES</h3>
-    <li><a href="">Facebook</a></li>
-    <li><a href="">Instragram</a></li>
-    <li><a href="">Tik-Tok</a></li>
-  </th>
-
-  <th>
-    <h3>OTE'L</h3>
-    <li><a href="">Nosotros</a></li>
-    <li><a href="">Atencion</a></li>
-    <li><a href="">Ubicacion</a></li>
-  </th>
-
-  <th>
-    <h3>Anfritiones</h3>
-    <li><a href="">La Sociedad</a></li>
-  </th>
-</section>
-</footer>
-
-
+<app-footer />

@@ -78,6 +78,20 @@ export class GetDataService {
     return data
   }
 
+  async resenaRate(id_room: number): Promise<Resena[]> {
+    const { data, error } = await this.supabase
+      .from('resenas')
+      .select()
+      .eq('id_habita', id_room)
+      .returns<Resena[]>()
+
+    if (error) {
+      return []
+    }
+
+    return data
+  }
+
   async obtenerReservas(): Promise<ReservaStatsAux> {
     const { data, error } = await this.supabase
       .from('reserva')
