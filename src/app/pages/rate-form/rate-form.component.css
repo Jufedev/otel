@@ -1,3 +1,89 @@
 form{
+    border: solid 1px #d2bebfcc;
+    height: 470px;
+    width: 350px;
     margin-top: 150px;
+    position: absolute;
+    left: 50%;
+    border-radius: 20px;
+    transform: translate(-50%,-10%);
+    text-align: center;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+h5{
+    padding: 10px;
+}
+
+label{
+    margin-left: 10px;
+    margin-right: 10px;
+}
+
+
+.ca{
+    margin-top: 10px;
+    background: transparent;
+    border: solid 1px #D2BEBF;
+    color: #000;
+    cursor: pointer;
+    border-radius: 8px;
+    width: 100px;
+    height: 45px;
+    transition: 0.3s;
+}
+
+.ca:hover {
+    background-color: #D2BEBF;
+    color: #fff;
+}
+
+
+.button{
+    position: fixed;
+    bottom: 0;
+    left: 0;
+    margin: 30px;
+    display: flex;
+    height: 3em;
+    width: 110px;
+    align-items: center;
+    justify-content: center;
+    background-color: #eeeeee4b;
+    border-radius: 3px;
+    letter-spacing: 1px;
+    transition: all 0.2s linear;
+    cursor: pointer;
+    border: none;
+    border-radius: 20px;
+}
+
+button > svg {
+    margin-right: 5px;
+    margin-left: 5px;
+    font-size: 20px;
+    transition: all 0.4s ease-in;
+}
+
+button:hover > svg {
+    font-size: 1.2em;
+    transform: translateX(-5px);
+}
+
+button:hover {
+    background: #D2BEBF;
+    box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+    transform: translateY(-2px);
+}
+
+.siguientes > button{
+    margin-left: 5px;
+    font-size: smaller;
+    background: #ffffff;
+    border: none;
+}
+
+
+
+
+

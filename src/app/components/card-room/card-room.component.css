@@ -7,6 +7,7 @@ div:hover {
   margin: 25px;
   float: left;
   margin-bottom: 80px;
+  text-decoration: none;
   position: relative;
   background-color: #fffaf7;
   box-shadow: 0px 2px 5px 0 rgb(20, 20, 20, 0.4);
@@ -25,7 +26,6 @@ div:hover {
 
 .titulos {
   color: #000;
-  text-decoration: none;
   padding-bottom: 20px;
   padding-left: 20px;
 }
@@ -37,3 +37,5 @@ div:hover {
   border-top-left-radius: 20px;
   border-top-right-radius: 20px;
 }
+
+

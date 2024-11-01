@@ -60,7 +60,7 @@
 
           <h4>¡Ya tienes una reserva!</h4>
           <div class="cede">
-            <button (click)="onCancel()">Cancelar reservación</button>
+            <button (click)="onCancel()">Cancelar</button>
             <button (click)="onRate()">Calificar</button>
           </div>
           }@else { @if (idUser != null) {
@@ -136,7 +136,7 @@
   <div class="cali">
     <H1>Calificación</H1>
     <span class="loader"
-      ><h3>{{ total_c }}</h3></span
+      ><h3 class="h3">{{ total_c }}</h3></span
     >
     <h3>Un gran soñador</h3>
     <p>El favorito de unos cuantos y miles de soñadores</p>

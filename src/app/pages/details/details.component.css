@@ -79,6 +79,9 @@ h3 {
   padding-bottom: 10px;
 }
 
+
+
+
 p {
   padding-bottom: 20px;
 }
@@ -213,6 +216,7 @@ label > h1 {
   margin-bottom: 20%;
 }
 
+
 li > img {
   height: 75px;
 }
@@ -240,6 +244,13 @@ li {
   width: 84px;
   height: 84px;
   position: relative;
+}
+
+.h3{
+  position: relative;
+  padding-top: 22px;
+  text-align: center;
+  z-index: 1;
 }
 
 .loader:before,
@@ -324,6 +335,8 @@ button:hover {
 .cede > button {
   border-radius: 10px;
   border: none;
+  font-size: large;
+  font-weight: 500;
   background-color: #d2bebf;
   padding: 10px;
   margin: 10px;
