@@ -4,7 +4,6 @@
   position: relative !important;
   height: 50px !important;
   width: 50px !important;
-
 }
 
 .Subtitulos {
@@ -50,10 +49,10 @@ li {
 }
 
 nav {
-  top: 0px;
+  top: 10px;
   z-index: 1;
+  position: absolute;
   width: 100%;
-  position: fixed;
   height: 30px;
   background-color: transparent;
 }

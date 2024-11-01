@@ -2,14 +2,17 @@
   [userImg]="userPhoto"
   [logged]="isLogged"
 />
-
-<div class="conta">
-  <div class="conlu">
-    <img
+<div class="imgprin">
+  <h1>Holetes Colombianos</h1>
+  <img
       [src]="roomData.img_habita[0]"
       alt=""
       class="portada-img"
     />
+  </div>
+
+<div class="conta">
+  <div class="conlu">
     @for (item of roomData.img_habita.slice(1,-1); track $index) {
     <img
       [src]="item"
@@ -26,16 +29,6 @@
       <p>{{ roomData.desc_habita }}</p>
       <p>Cupo: {{ roomData.cant_usua }}</p>
       <p>Precio: $ {{ roomData.precio }}</p>
-    </div>
-
-    <div>
-      <p>Nuestras calificaciones:</p>
-      <p>Calidad - precio: {{ total_c_calidad_precio }}</p>
-      <p>Limpieza: {{ total_c_limpieza }}</p>
-      <p>Ubicación: {{ total_c_ubicacion }}</p>
-      <p>Wifi: {{ total_c_wifi }}</p>
-
-      <p>Nuestros usuarios dicen que esta habitación es un: {{ total_c }}</p>
     </div>
 
     <div class="br"></div>
@@ -95,7 +88,50 @@
       </div>
     </div>
   </div>
-  <div class="linea"></div>
+
+
+<div class="lines"></div>
+<div class="cali">
+<H1>Calificación</H1>
+    <span class="loader"><h3>{{ total_c }}</h3></span>
+    <h3>Un gran soñador</h3>
+    <p>El favorito de unos cuantos y miles de soñadores</p>
+</div>
+
+
+<div class="calificacion">
+    <ol>
+    <li><img src="marca.png" alt=""></li>
+    <li><h3>Calidad - precio</h3></li>
+    <li><p>{{ total_c_calidad_precio }}</p></li>
+    </ol>
+
+    <div class="line"></div>
+
+    <ol>
+    <li><img src="pano.png" alt=""></li>
+    <li><h3>Limpieza</h3></li>
+    <li><p>{{ total_c_limpieza }}</p></li>
+    </ol>
+
+    <div class="line"></div>
+
+    <ol>
+      <li><img src="puntero-de-ubicacion.png" alt=""></li>
+      <li><h3>Ubicación </h3></li>
+      <li><p>{{ total_c_ubicacion }}</p></li>
+    </ol>
+
+    <div class="line"></div>
+    
+    <ol>
+      <li><img src="wifi-movil.png" alt=""></li>
+      <li><h3>WIFI</h3></li>
+      <li><p>{{ total_c_wifi }}</p></li>
+    </ol>
+
+  </div>
+  
 </div>
 
 <app-footer />

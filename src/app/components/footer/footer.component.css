@@ -1,6 +1,9 @@
 footer {
-  background-color: brown;
+  display: flex;
+  justify-content: center;
+  background-color: none;
 }
+
 
 h3 {
   color: #f1d5af;
@@ -18,9 +21,36 @@ a:hover {
   color: #000;
 }
 
+ol{
+  margin-left: 50px;
+}
+
+
 li {
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: left;
   margin: 8px 0;
+}
+
+img{
+  margin-right: 15px;
+  height: 32px;
+}
+
+.line1{
+  height: 2px;
+  width: 70%;
+  background: #D2BEBF;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin: 10px auto;
+}
+
+.derechos{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 50%;
 }
