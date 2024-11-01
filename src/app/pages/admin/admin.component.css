@@ -38,6 +38,11 @@ button > svg {
   transition: all 0.4s ease-in;
 }
 
+.buto {
+  background: #D2BEBF;
+
+}
+
 button:hover > svg {
   font-size: 1.2em;
   transform: translateX(-5px);

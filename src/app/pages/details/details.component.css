@@ -43,6 +43,7 @@
   object-fit: cover;
   width: 90%;
   height: 300px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
 
 .conlu > img:hover {
@@ -70,7 +71,7 @@
 
 .des {
   padding-right: 100px;
-  width: 700px;
+  width: 800px;
 }
 
 h3 {
@@ -91,12 +92,87 @@ p {
   right: 50px;
 }
 
+/*------------------------------------*/
 .reserva {
-  width: 300px;
-  height: 200px;
+  width: 350px;
+  height: 240px;
   border-radius: 10px;
-  border: #d2bebfcc solid 4px;
+  border: #d2bebfcc solid 1px;
   margin-bottom: 20px;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.ini{
+  display: flex;
+  text-align: left;
+  margin: 20px;
+}
+
+.fecha1{
+  padding: 5px;
+  width: 60% ;
+  border: solid 2px #D2BEBF;
+}
+
+
+input{
+  background: none;
+  border: none;
+  font-size: larger;
+}
+
+.btn {
+  position: relative;
+  font-size: 17px;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding: 1em 2.5em;
+  display: inline-block;
+  cursor: pointer;
+  border-radius: 10px;
+  transition: all 0.2s;
+  border: none;
+  font-family: inherit;
+  font-weight: 70%;
+  color: black;
+  background-color: #D2BEBF;
+}
+
+.btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.btn:active {
+  transform: translateY(-1px);
+  box-shadow: 0 5px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn::after {
+  content: "";
+  display: inline-block;
+  height: 100%;
+  width: 100%;
+  border-radius: 10px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  z-index: -1;
+  transition: all 0.4s;
+}
+
+.btn::after {
+  background-color: #D2BEBF;
+}
+
+.btn:hover::after {
+  transform: scaleX(1.4) scaleY(1.6);
+  opacity: 0;
+}
+
+
+label > h1{
+  font-size: small;
 }
 
 .rese {
@@ -199,14 +275,66 @@ li{
   }
 }
 
-.loader  > h3 {
-  top: 5px;
-  left: 22px;
-  z-index: 2;
-  position: absolute;
-  color: #fff;
+/*boton de regresar*/
+.button{
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  margin: 30px;
+  display: flex;
+  height: 3em;
+  width: 110px;
+  align-items: center;
+  justify-content: center;
+  background-color: #eeeeee4b;
+  border-radius: 3px;
+  letter-spacing: 1px;
+  transition: all 0.2s linear;
+  cursor: pointer;
+  border: none;
+  border-radius: 20px;
+  background: #D2BEBF;
 }
 
+button > svg {
+  margin-right: 5px;
+  margin-left: 5px;
+  font-size: 20px;
+  transition: all 0.4s ease-in;
+}
+
+button:hover > svg {
+  font-size: 1.2em;
+  transform: translateX(-5px);
+}
+
+button:hover {
+  box-shadow: 9px 9px 33px #d1d1d1, -9px -9px 33px #ffffff;
+  transform: translateY(-2px);
+}
+
+.siguientes > button{
+  margin-left: 5px;
+  font-size: smaller;
+  background: #ffffff;
+  border: none;
+}
+
+
+.cede{
+  display: grid;
+  justify-content: center;
+}
+
+.cede > button{
+  border-radius: 10px;
+  border: none;
+  background-color: #D2BEBF;
+  padding: 10px;
+  margin: 10px;
+  height: 40px;
+  width: 150px;
+}
 
 
 
