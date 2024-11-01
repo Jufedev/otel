@@ -8,6 +8,7 @@ export interface Habitacion {
   cant_usua: number
   nom_habita: string
   serv_habita: string[]
+  logo_serv: string[]
   precio: number
 }
 

@@ -30,6 +30,7 @@ export class DetailsComponent {
     cant_usua: 0,
     nom_habita: '',
     serv_habita: [''],
+    logo_serv: [''],
     precio: 0,
   }
   private roomId = ''
@@ -154,6 +155,7 @@ export class DetailsComponent {
       Number(this.roomId)
     )
     dataReserva.then((data) => {
+      sessionStorage.removeItem('reserva')
       sessionStorage.setItem('reserva', `${data[0].id_reserva}`)
       window.location.reload()
     })
