@@ -155,7 +155,14 @@ export class DetailsComponent {
       Number(this.roomId)
     )
     dataReserva.then((data) => {
-      sessionStorage.removeItem('reserva')
+      /* let auxvaaar = sessionStorage.getItem('reserva')
+      
+
+      console.log(auxvaaar);
+      
+      if (auxvaaar) {
+        sessionStorage.removeItem('reserva')
+      } */
       sessionStorage.setItem('reserva', `${data[0].id_reserva}`)
       window.location.reload()
     })
